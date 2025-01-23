@@ -3,4 +3,7 @@ project(WorkoutManagementSystem)
 
 set(CMAKE_CXX_STANDARD 23)
 
+enable_testing()
+
 add_subdirectory(src)
+add_subdirectory(unit_tests)

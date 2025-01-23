@@ -1,10 +1,94 @@
+Enums:
+- MuscleGroups
+
+Structs:
+- Muscle
+{
+    data:
+    name
+    muscle_groups
+}
+
 Classes:
 
-1. User
-2. Exercise
-3. ExerciseDay
-4. Schedule
-5. Calender
-6. Tracker
+- Exercise
+{
+    data:
+    id name date_added
+    description
+    form
+    primary_muscles_worked
+    secondry_muscles_worked
+
+    public_interface:
+    get functions
+    set functions
+}
+
+- ExerciseCatalogue (general and personal)
+
+- ExerciseDay
+{
+    data:
+    id name date_added
+    exercises
+    description
+    muscle_groups
+
+    public_interface:
+    add_exercise_from_catalogue
+    add_exercise_from_personal_catalogue
+    remove_exercise
+    getters and setters
+    undo_changes (maybe later, for ease of use)
+
+}
+
+3. Schedule
+{
+    data:
+    id name date_added
+    number_of_days_repeating
+    exercise_days
+    discription
+
+    public_interface:
+    add_exercise_day_from_catalogue
+    add_exercise_day_from_personal_catalogue
+    remove_exercise_day
+    reorder_exercise_days
+    undo_changes
+    getters and setters
+
+}
+
+4. Calender
+{
+    data:
+    current_schedule
+    current_schedule_start_day
+
+    public_interface:
+    set_current_schedule
+    set_current_schedule_start_day
+    getters
+}
+
+5. Tracker
+{
+    data:
+    curr_exercise_day
+    past_calender_with_recorded_exercises
+    curr_day_exercises_recorded
+
+}
+
+6. User
+{
+    data:
+    username
+    password
+
+}
 
 
