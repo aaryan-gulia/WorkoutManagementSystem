@@ -1,0 +1,11 @@
+Features:
+1. user can login and logout
+2. user can use the app as guest
+    a. App caches data on device to save memory for user who is guest
+3. user can create and customise exercise
+4. user can creat and customise exercise days
+5. user can creat and customise schedule (7 week days)
+6. user can  add schedule to calender, move schedule around on calender, or remove schedule from calender
+7. user can track workouts through tracker - exercises done, reps, weights, and rpe
+    a. tracker syncs with calender daily, or when clicked.
+    b. user can also add exercises to the tracker which aren't on the calender or remove exercises which are on the calender
