@@ -1,5 +1,3 @@
 project(WorkoutManagementSystem)
 
-add_executable(${PROJECT_NAME} main.cpp)
-
-include_directories()
+add_library(${PROJECT_NAME} Exercise.cpp utils.cpp)

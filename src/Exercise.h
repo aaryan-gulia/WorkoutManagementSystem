@@ -7,7 +7,7 @@
 
 class Exercise {
   public:
-    Exercise(const std::string& name = "",
+    explicit Exercise(const std::string& name = "",
              const std::string& description = "",
              const std::vector<Muscle>& primaryMuscles = std::vector<Muscle>(),
              const std::vector<Muscle>& secondaryMuscles = std::vector<Muscle>());
@@ -21,12 +21,12 @@ class Exercise {
     void setName(const std::string& name);
     void setDescription(const std::string& description);
     void setPrimaryMuscles(const std::vector<Muscle>& primaryMuscles);
-    void setSecondaaryMuscles(const std::vector<Muscle>& secondaryMuscles);
+    void setSecondaryMuscles(const std::vector<Muscle>& secondaryMuscles);
 
-    const std::string& getName() const;
-    const std::string& getDescription() const;
-    const std::vector<Muscle>& getPrimaryMuscles() const;
-    const std::vector<Muscle>& getSecondaryMuscles() const;
+    [[nodiscard]] const std::string& getName() const;
+    [[nodiscard]] const std::string& getDescription() const;
+    [[nodiscard]] const std::vector<Muscle>& getPrimaryMuscles() const;
+    [[nodiscard]] const std::vector<Muscle>& getSecondaryMuscles() const;
 
   private:
     std::string uuid;
@@ -37,4 +37,12 @@ class Exercise {
     std::string description;
     std::vector<Muscle> primaryMusclesWorked;
     std::vector<Muscle> secondaryMusclesWorked;
+};
+
+class ExerciseCatalogue {
+public:
+
+
+private:
+    std::vector<Exercise> exercises;
 };

@@ -14,7 +14,7 @@ enum class MuscleGroup{
   Other,
 };
 
-MuscleGroup MuscleGroupFromString(const std::string& muscleGroupName){
+inline MuscleGroup MuscleGroupFromString(const std::string& muscleGroupName){
   if (muscleGroupName == "legs"){
     return MuscleGroup::Legs;
   }
@@ -39,6 +39,8 @@ MuscleGroup MuscleGroupFromString(const std::string& muscleGroupName){
 }
 
 struct Muscle{
+
+  Muscle(const std::string& name, MuscleGroup muscleGroup):name(name), muscleGroup(muscleGroup){}
 
   std::string name;
   MuscleGroup muscleGroup;

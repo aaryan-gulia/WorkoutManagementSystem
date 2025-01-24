@@ -1,37 +1,40 @@
 #include "utils.h"
+#include "boost/uuid.hpp"
+#include <boost/uuid/uuid_generators.hpp>
+#include "boost/lexical_cast.hpp"
 
-#include"uuid_v4.h"
 
 std::string Utils::generateUUID(){
-  UUIDv4::UUIDGenerator<std::mt19937_64> uuidGenerator;
-  UUIDv4::UUID uuid = uuidGenerator.getUUID();
-  return uuid.str();
+  boost::uuids::random_generator gen;
+  boost::uuids::uuid uuid = gen();
+  return boost::lexical_cast<std::string>(uuid);
 }
 
 Utils::DateTime Utils::getDateTime(){
-  return Utils::DateTime();
+  return {};
 }
 
 Utils::DateTime::DateTime(){
   time_t timestamp;
+  time(&timestamp);
   dateTime = *localtime(&timestamp);
 }
 
-uint32_t Utils::DateTime::year(){
+uint32_t Utils::DateTime::year() const{
   return dateTime.tm_year + 1900;
 }
-uint32_t Utils::DateTime::month(){
+uint32_t Utils::DateTime::month() const{
   return dateTime.tm_mon + 1;
 }
-uint32_t Utils::DateTime::date(){
+uint32_t Utils::DateTime::date() const{
   return dateTime.tm_mday;
 }
-uint32_t Utils::DateTime::hour(){
+uint32_t Utils::DateTime::hour() const{
   return dateTime.tm_hour;
 }
-uint32_t Utils::DateTime::minute(){
+uint32_t Utils::DateTime::minute() const{
   return dateTime.tm_min;
 }
-uint32_t Utils::DateTime::second(){
+uint32_t Utils::DateTime::second() const{
   return dateTime.tm_sec;
 }
